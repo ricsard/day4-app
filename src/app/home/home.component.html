@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <mat-card fxFlex="80%">
+    <mat-card-title><mat-icon>home</mat-icon> Home</mat-card-title>
+    <mat-card-content>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <h1>Memo Game</h1>
+        <h2 *ngIf="credentialsService.hasNickname()">Hi {{credentialsService.getNickname()}}! <a href="#" (click)="logout()"><mat-icon>exit_to_app</mat-icon></a></h2>
+        <button mat-raised-button color="primary" routerLink="/game">Start</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

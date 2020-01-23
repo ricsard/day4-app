@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <mat-card fxFlex="80%">
+    <mat-card-content>
+      <ngx-list-lib *ngIf="leaderboard; else loading" [items]="leaderboard">
+        <ng-template ngxListItemTpl let-item="item">
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div>{{item.time | time}} : {{item.name}}</div>
+            <div>{{item.timestamp | date:'yyyy. MMM. dd.'}}</div>
+          </div>
+        </ng-template>
+      </ngx-list-lib>
+      <ng-template #loading>Loading...</ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>
+

@@ -1,0 +1,67 @@
+.tile {
+  perspective: 800px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  backface-visibility: hidden;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front {
+  background: #ddd;
+  transform: rotateY(0deg);
+}
+.card-back {
+  background: #aaa;
+  transform: rotateY(-180deg);
+}
+
+.time {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  .content {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    .title {
+      font-size: 5rem;
+      text-align: center;
+    }
+    .buttons {
+      text-align: center;
+      .button {
+        margin: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title><mat-icon>gamepad</mat-icon> Game</mat-card-title>
+  <mat-card-content>
+    <div class="time">{{elapsedTime | time}}</div>
+    <div *ngIf="game">
+      <mat-grid-list [cols]="game.board[0].length">
+        <ng-container *ngFor="let cardRow of game.board; let j = index;">
+          <ng-container *ngFor="let card of cardRow; let i = index;">
+            <mat-grid-tile>
+              <div class="tile">
+                <div class="card" (click)="game.selectCard(j, i)" [@stateVisible]="card.visible">
+                  <div class="card-front">{{card.value}}</div>
+                  <div class="card-back">X</div>
+                </div>
+              </div>
+            </mat-grid-tile>
+          </ng-container>
+        </ng-container>
+      </mat-grid-list>
+    </div>
+    <div class="game-over" *ngIf="isGameOver" @show>
+      <div class="content">
+        <div class="title">Game Over</div>
+        <div class="buttons">
+          <button mat-raised-button color="primary" class="button" routerLink="/">Home</button>
+          <button mat-raised-button color="primary" class="button" routerLink="/leaderboard">Leaderboard</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+

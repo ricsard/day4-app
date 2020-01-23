@@ -1,0 +1,24 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <mat-card>
+    <mat-card-title class="title"><mat-icon>face</mat-icon> Login</mat-card-title>
+    <mat-card-content class="content">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <mat-form-field class="nickname-field">
+          <input type="text" matInput placeholder="Nickname" formControlName="nickname" autocomplete="off">
+          <mat-error *ngIf="form.get('nickname').hasError('required')">
+            Nickname is required!
+          </mat-error>
+          <mat-error *ngIf="form.get('nickname').hasError('minlength')">
+            Nickname must be at least {{form.get('nickname').getError('minlength').requiredLength}} characters!
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button">
+          <button type="submit" mat-button [disabled]="form.invalid">Login</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
